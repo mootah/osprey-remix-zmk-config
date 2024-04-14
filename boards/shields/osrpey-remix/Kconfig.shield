@@ -1,0 +1,5 @@
+# Copyright (c) 2020 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+config SHIELD_OSPREY-REMIX
+    def_bool $(shields_list_contains,osprey-remix)
