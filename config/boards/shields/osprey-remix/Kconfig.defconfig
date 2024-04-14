@@ -1,9 +1,9 @@
 # Copyright (c) 2020 The ZMK Contributors
 # SPDX-License-Identifier: MIT
 
-if Osprey-remix
+if SHIELD_OSPREY-REMIX
 
 config ZMK_KEYBOARD_NAME
-    default "Osprey-Remix"
+    default "Osprey Remix"
 
 endif
