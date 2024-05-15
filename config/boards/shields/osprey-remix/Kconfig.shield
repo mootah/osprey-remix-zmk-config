@@ -2,4 +2,4 @@
 # SPDX-License-Identifier: MIT
 
 config SHIELD_OSPREY-REMIX
-    def_bool $(shields_list_contains,osprey-remix)
+    def_bool $(shields_list_contains,my_board)
