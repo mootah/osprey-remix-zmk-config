@@ -22,14 +22,14 @@
             key-positions = <25 26 27>;
         };
 
-        minus {
-            bindings = <&kp MINUS>;
-            key-positions = <6 7>;
-        };
-
         equal {
             bindings = <&kp EQUAL>;
             key-positions = <18 19>;
+        };
+
+        minus2 {
+            bindings = <&kp MINUS>;
+            key-positions = <17 16>;
         };
     };
 
