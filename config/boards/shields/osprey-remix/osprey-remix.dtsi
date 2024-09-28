@@ -25,6 +25,65 @@
         >;
     };
 
+
+    #include <physical_layouts.dtsi>
+
+/ {
+    layout_0: layout_0 {
+        compatible = "zmk,physical-layout";
+        display-name = "LAYOUT";
+
+        kscan = <&kscan_0>;
+        transform = <&matrix_transform_0>;
+
+        keys  //                     w   h    x    y     rot    rx    ry
+            = <&key_physical_attrs 100 100    0   75       0     0     0>
+            , <&key_physical_attrs 100 100  100   50       0     0     0>
+            , <&key_physical_attrs 100 100  200   25       0     0     0>
+            , <&key_physical_attrs 100 100  300    0       0     0     0>
+            , <&key_physical_attrs 100 100  400   25       0     0     0>
+            , <&key_physical_attrs 100 100  500   50       0     0     0>
+            , <&key_physical_attrs 100 100  800   50       0     0     0>
+            , <&key_physical_attrs 100 100  900   25       0     0     0>
+            , <&key_physical_attrs 100 100 1000    0       0     0     0>
+            , <&key_physical_attrs 100 100 1100   25       0     0     0>
+            , <&key_physical_attrs 100 100 1200   50       0     0     0>
+            , <&key_physical_attrs 100 100 1300   75       0     0     0>
+            , <&key_physical_attrs 100 100    0  175       0     0     0>
+            , <&key_physical_attrs 100 100  100  150       0     0     0>
+            , <&key_physical_attrs 100 100  200  125       0     0     0>
+            , <&key_physical_attrs 100 100  300  100       0     0     0>
+            , <&key_physical_attrs 100 100  400  125       0     0     0>
+            , <&key_physical_attrs 100 100  500  150       0     0     0>
+            , <&key_physical_attrs 100 100  800  150       0     0     0>
+            , <&key_physical_attrs 100 100  900  125       0     0     0>
+            , <&key_physical_attrs 100 100 1000  100       0     0     0>
+            , <&key_physical_attrs 100 100 1100  125       0     0     0>
+            , <&key_physical_attrs 100 100 1200  150       0     0     0>
+            , <&key_physical_attrs 100 100 1300  175       0     0     0>
+            , <&key_physical_attrs 100 100    0  275       0     0     0>
+            , <&key_physical_attrs 100 100  100  250       0     0     0>
+            , <&key_physical_attrs 100 100  200  225       0     0     0>
+            , <&key_physical_attrs 100 100  300  200       0     0     0>
+            , <&key_physical_attrs 100 100  400  225       0     0     0>
+            , <&key_physical_attrs 100 100  500  250       0     0     0>
+            , <&key_physical_attrs 100 100  800  250       0     0     0>
+            , <&key_physical_attrs 100 100  900  225       0     0     0>
+            , <&key_physical_attrs 100 100 1000  200       0     0     0>
+            , <&key_physical_attrs 100 100 1100  225       0     0     0>
+            , <&key_physical_attrs 100 100 1200  250       0     0     0>
+            , <&key_physical_attrs 100 100 1300  275       0     0     0>
+            , <&key_physical_attrs 100 100  300  300       0     0     0>
+            , <&key_physical_attrs 100 100  400  325       0     0     0>
+            , <&key_physical_attrs 150 100  500  350       0     0     0>
+            , <&key_physical_attrs 150 100  750  350       0     0     0>
+            , <&key_physical_attrs 100 100  900  325       0     0     0>
+            , <&key_physical_attrs 100 100 1000  300       0     0     0>
+            ;
+    };
+};
+
+
     kscan0: kscan_0 {
         compatible = "zmk,kscan-gpio-matrix";
         wakeup-source;
