@@ -37,11 +37,6 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            // -------------------------------------------------------------------------------------
-            // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |   BKSP    |
-            // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |    '      |
-            // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | SHFT(RET) |
-            //                    | ALT | LWR | SPC |   | ALT | RSE  | ALT |
 
             bindings = <
 &kp TAB    &kp Q  &kp W  &kp E         &kp R         &kp T        &kp Y        &kp U                &kp I             &kp O    &kp P     &kp LEFT_BRACKET
@@ -52,11 +47,6 @@
         };
 
         lower_layer {
-            // ------------------------------------------------------------------------------------
-            // |    |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  |      DEL    |
-            // |    |  _  |  +  |  {  |  }  | "|" |   | LFT | DWN |  UP | RGT |  `  |       ~     |
-            // |    | ESC | GUI | ALT | CAPS|  "  |   | HOME| END | PGUP| PGDN| PRSC| SHFT(SPACE) |
-            //                       |     |     | RET | ADJ |     |
 
             bindings = <
 &kp GRAVE  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT  &kp CARET      &kp AMPS  &kp ASTRK  &kp LPAR          &kp RPAR           &kp GRAVE
@@ -67,11 +57,6 @@
         };
 
         raise_layer {
-            // ----------------------------------------------------------------------------
-            // |    |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | DEL |
-            // |    |  -  |  =  |  [  |  ]  |  \  |   | F1  | F2  | F3  | F4  | F5  | F6  |
-            // |    | ESC | GUI | ALT | CAPS|  "  |   | F7  | F8  | F9  | F10 | F11 | F12 |
-            //                       |     | ADJ | BKSP |    |     |
 
             bindings = <
 &kp ESCAPE  &kp N1  &kp N2  &kp N3        &kp N4          &kp N5      &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &kp BACKSPACE
@@ -82,17 +67,12 @@
         };
 
         adjust_layer {
-            // -----------------------------------------------------------------------------------------
-            // | RGB BRI+ | RGB SAT+ | RGB HUE+ | RGB ANI+ |    | RGB TOG |   |  BT1  | BT2 | BT3 | BT4 | BT5 | BT CLR |
-            // | RGB BRI- | RGB SAT- | RGB HUE- | RGB ANI- |    |         |   |       |     |     |     |     |        |
-            // |          |          |          |          |    |         |   | RESET |     |     |     |     |        |
-            //                                              |     |     |     |     |     |
 
             bindings = <
 &none   &none   &none   &none    &bootloader  &none    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &trans  &trans  &bt BT_CLR
 &kp F1  &kp F2  &kp F3  &kp F4   &kp F5       &kp F6   &trans        &none         &none         &none   &none   &none
 &kp F7  &kp F8  &kp F9  &kp F10  &kp F11      &kp F12  &none         &sys_reset    &none         &none   &none   &none
-                        &trans   &trans       &trans   &trans        &trans        &trans
+                        &studio_unlock   &trans       &trans   &trans        &trans        &trans
             >;
         };
     };
