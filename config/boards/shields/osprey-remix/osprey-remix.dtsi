@@ -7,6 +7,13 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <physical_layouts.dtsi>
 
+/ {
+    chosen {
+        zmk,kscan = &kscan0;
+        zmk,matrix-transform = &default_transform;
+        zmk,physical-layout = &default_layout;
+    };
+
 default_layout: default_layout {
         compatible = "zmk,physical-layout";
         display-name = "Default";
@@ -72,13 +79,6 @@ default_layout: default_layout {
                 , <24 25 26 27 28 29 30 31 32 33 34 35>
                 , <         36 37 38 39 40 41         >;
         };
-    };
-
-/ {
-    chosen {
-        zmk,kscan = &kscan0;
-        zmk,matrix-transform = &default_transform;
-        zmk,physical-layout = &default_layout;
     };
 
     default_transform: keymap_transform_0 {
