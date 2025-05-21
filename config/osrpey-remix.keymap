@@ -47,9 +47,9 @@
 
             bindings = <
 &kp ESC   &kp Q  &kp W &kp U &kp F         &kp MINUS   &kp SQT     &kp J          &kp H    &kp Y &kp P &to 1
-&kp LCTRL &kp E  &kp I &kp A &kp O         &kp COMMA   &kp K       &kp T          &kp N    &kp S &kp R &kp BSPC 
+&kp LCTRL &kp E  &kp I &kp A &kp O         &kp COMMA   &kp K       &kp T          &kp N    &kp S &kp R &kp RCTRL 
 &kp LALT  &lundo &kp X &kp C &kp V         &kp QMARK   &kp G       &kp D          &kp M    &kp Z &kp B &kp RGUI
-                      &mo 4 &mt LSHFT TAB &lt 2 ENTER &lt 3 SPACE &mt RSHFT BSPC &mo 5
+                       &mo 4 &mt LSHFT TAB &lt 2 ENTER &lt 3 SPACE &mt RSHFT BSPC &mo 5
             >;
         };
 
@@ -69,8 +69,8 @@
             display-name = "Left";
 
             bindings = <
-&trans &none     &kp LT    &kp GT    &kp EQUAL  &kp PLUS    &kp GRAVE &kp DQT   &none    &none     &kp BSLH  &none
-&trans &kp ESC   &kp LBKT  &kp RBKT  &none      &kp DOT     &kp LEFT  &kp DOWN  &kp UP   &kp RIGHT &none     &kp DEL
+&trans &none     &kp LPAR  &kp RPAR  &kp EQUAL  &kp PLUS    &kp GRAVE &kp DQT   &kp LT   &kp GT    &kp BSLH  &none
+&trans &kp ESC   &kp BSPC  &kp TAB   &kp SPACE  &kp DOT     &kp LEFT  &kp DOWN  &kp UP   &kp RIGHT &none     &none
 &trans &kp LC(L) &kp LC(X) &kp LC(C) &kp LC(V)  &none       &none     &kp COLON &kp SEMI &none     &kp FSLH  &none
                            &none     &trans     &none       &none     &none     &none
             >;
@@ -80,8 +80,8 @@
             display-name = "Right";
 
             bindings = <
-&trans &kp PRCNT &kp LPAR &kp RPAR &kp UNDER &kp TILDE    &none    &none     &none     &none   &none &none 
-&trans &kp AT    &kp LBRC &kp RBRC &kp CARET &kp DLLR     &kp HOME &kp PG_DN &kp PG_UP &kp END &none &none  
+&trans &kp PRCNT &kp LBKT &kp RBKT &kp UNDER &kp TILDE    &kp HOME &kp PG_DN &kp PG_UP &kp END &none &none 
+&trans &kp AT    &kp LBRC &kp RBRC &kp CARET &kp DLLR     &none    &kp ENTER &none     &none   &none &none  
 &trans &kp HASH  &kp PIPE &kp AMPS &kp STAR  &kp EXCL     &none    &none     &none     &none   &none &none 
                           &none    &trans    &none        &none    &none     &none
             >;
@@ -92,7 +92,7 @@
 
             bindings = <
 &trans &none &none &none &none  &none    &kp PRCNT &kp N7 &kp N8 &kp N9 &kp EQUAL &kp BSPC
-&trans &none &none &none &none  &none    &kp FSLH  &kp N4 &kp N5 &kp N6 &kp MINUS &kp EXCL
+&trans &none &none &none &none  &kp DOT  &kp FSLH  &kp N4 &kp N5 &kp N6 &kp MINUS &kp EXCL
 &trans &none &none &none &none  &none    &kp STAR  &kp N1 &kp N2 &kp N3 &kp PLUS  &kp QMARK
                    &none &trans &none    &kp ENTER &kp N0 &wzero
             >;
