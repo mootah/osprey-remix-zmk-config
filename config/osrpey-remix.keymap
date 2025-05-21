@@ -2,11 +2,59 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
+#define MUTE (C_MUTE)
+#define VODN (C_VOL_DN)
+#define VOUP (C_VOL_UP)
+#define BRDN (C_BRI_DN)
+#define BRUP (C_BRI_UP)
+
+#define BTS0 (BT_SEL 0)
+#define BTS1 (BT_SEL 1)
+#define BTS2 (BT_SEL 2)
+#define BTCR (BT_CLR)
+
+/* Layer Default  */
+#define L_D 0
+/* Layer Qwerty   */
+#define L_Q 1
+/* Layer Left     */
+#define L_L 2
+/* Layer Right    */
+#define L_R 3
+/* Layer Tenkey   */
+#define L_T 4
+/* Layer Function */
+#define L_F 5
+
 &lt {
     flavor = "hold-preferred";
 };
 
 / {
+    combos {
+        compatible = "zmk,combos";
+
+        ime_off {
+            bindings = <&kp LANG2>;
+            key-positions = <15 16>;
+        };
+
+        ime_on {
+            bindings = <&kp LANG1>;
+            key-positions = <19 20>;
+        };
+    };
+
+    macros {
+        wzero: wzero {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp N0 &kp N0>
+                ;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
         
@@ -15,10 +63,10 @@
             display-name = "Default";
 
             bindings = <
-&kp TAB   &kp Q &kp W &kp U &kp F     &kp MINUS   &kp SQT     &kp J     &kp H    &kp Y &kp P &to 1
-&kp LCTRL &kp E &kp I &kp A &kp O     &kp COMMA   &kp K       &kp T     &kp N    &kp S &kp R &kp BSPC 
-&kp LALT  &kp L &kp X &kp C &kp V     &kp QMARK   &kp G       &kp D     &kp M    &kp Z &kp B &kp RGUI
-                      &mo 4 &kp LSHFT &lt 2 SPACE &lt 3 ENTER &kp RSHFT &mo 5
+&kp ESC   &kp Q &kp W &kp U   &kp F         &kp MINUS     &kp SQT       &kp J          &kp H    &kp Y &kp P &to L_Q
+&kp LCTRL &kp E &kp I &kp A   &kp O         &kp COMMA     &kp K         &kp T          &kp N    &kp S &kp R &kp BSPC 
+&kp LALT  &kp L &kp X &kp C   &kp V         &kp QMARK     &kp G         &kp D          &kp M    &kp Z &kp B &kp RGUI
+                      &mo L_T &mt LSHFT TAB &lt L_L ENTER &lt L_R SPACE &mt RSHFT BSPC &mo L_F
             >;
         };
 
@@ -27,10 +75,10 @@
             display-name = "Qwerty";
 
             bindings = <
-&kp TAB   &kp Q &kp W &kp E &kp R     &kp T       &kp Y       &kp U     &kp I     &kp O   &kp P    &to 0
-&kp LCTRL &kp A &kp S &kp D &kp F     &kp G       &kp H       &kp J     &kp K     &kp L   &kp SEMI &kp SQT 
-&kp LALT  &kp Z &kp X &kp C &kp V     &kp B       &kp N       &kp M     &kp COMMA &kp DOT &kp FSLH &kp RGUI
-                      &mo 4 &kp LSHFT &lt 2 SPACE &lt 3 ENTER &kp RSHFT &mo 5
+&kp ESC   &kp Q &kp W &kp E   &kp R         &kp T         &kp Y         &kp U          &kp I     &kp O   &kp P    &to L_D
+&kp LCTRL &kp A &kp S &kp D   &kp F         &kp G         &kp H         &kp J          &kp K     &kp L   &kp SEMI &kp SQT 
+&kp LALT  &kp Z &kp X &kp C   &kp V         &kp B         &kp N         &kp M          &kp COMMA &kp DOT &kp FSLH &kp RGUI
+                      &mo L_T &mt LSHFT TAB &lt L_L ENTER &lt L_R SPACE &mt RSHFT BSPC &mo L_F
             >;
         };
 
@@ -38,10 +86,10 @@
             display-name = "Left";
 
             bindings = <
-&none &none     &kp LT    &kp GT    &kp EQUAL  &kp PLUS &kp GRAVE &kp DQT   &none    &none     &kp BSLH  &none
-&none &kp LANG2 &kp LBKT  &kp RBKT  &kp ESC    &kp DOT  &kp LEFT  &kp DOWN  &kp UP   &kp RIGHT &kp LANG1 &kp DEL
-&none &kp LC(L) &kp LC(X) &kp LC(C) &kp LC(V)  &none    &none     &kp COLON &kp SEMI &none     &kp FSLH  &none
-                          &none     &none      &none    &kp TAB   &none     &none
+&trans &none     &kp LT    &kp GT    &kp EQUAL  &kp PLUS    &kp GRAVE &kp DQT   &none    &none     &kp BSLH  &none
+&trans &kp ESC   &kp LBKT  &kp RBKT  &none      &kp DOT     &kp LEFT  &kp DOWN  &kp UP   &kp RIGHT &none     &kp DEL
+&trans &kp LC(L) &kp LC(X) &kp LC(C) &kp LC(V)  &none       &none     &kp COLON &kp SEMI &none     &kp FSLH  &none
+                           &none     &trans     &none       &none     &none     &none
             >;
         };
 
@@ -49,10 +97,10 @@
             display-name = "Right";
 
             bindings = <
-&none &kp PRCNT &kp LPAR &kp RPAR &kp UNDER &kp TILDE &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &kp C_BRI_DN  &kp C_BRI_UP &none 
-&none &kp AT    &kp LBRC &kp RBRC &kp CARET &kp DLLR  &kp HOME   &kp PG_DN    &kp PG_UP    &kp END       &none        &none  
-&none &kp HASH  &kp PIPE &kp AMPS &kp STAR  &kp EXCL  &none      &none        &none        &none         &none        &none 
-                         &none    &none     &kp BSPC  &none      &none        &none
+&trans &kp PRCNT &kp LPAR &kp RPAR &kp UNDER &kp TILDE    &none    &none     &none     &none   &none &none 
+&trans &kp AT    &kp LBRC &kp RBRC &kp CARET &kp DLLR     &kp HOME &kp PG_DN &kp PG_UP &kp END &none &none  
+&trans &kp HASH  &kp PIPE &kp AMPS &kp STAR  &kp EXCL     &none    &none     &none     &none   &none &none 
+                          &none    &trans    &none        &none    &none     &none
             >;
         };
 
@@ -60,10 +108,10 @@
             display-name = "Tenkey";
 
             bindings = <
-&none &none &none &none &none &none  &kp PRCNT  &kp N7 &kp N8 &kp N9 &kp EQUAL  &kp BSPC
-&none &none &none &none &none &none  &kp FSLH   &kp N4 &kp N5 &kp N6 &kp MINUS  &kp EXCL
-&none &none &none &none &none &none  &kp STAR   &kp N1 &kp N2 &kp N3 &kp PLUS   &kp QMARK
-                  &none &none &none  &kp ENTER  &kp N0 &none
+&trans &none &none &none &none  &none    &kp PRCNT &kp N7 &kp N8 &kp N9 &kp EQUAL &kp BSPC
+&trans &none &none &none &none  &none    &kp FSLH  &kp N4 &kp N5 &kp N6 &kp MINUS &kp EXCL
+&trans &none &none &none &none  &none    &kp STAR  &kp N1 &kp N2 &kp N3 &kp PLUS  &kp QMARK
+                   &none &trans &none    &kp ENTER &kp N0 &wzero
             >;
         };
 
@@ -71,10 +119,10 @@
             display-name = "Function";
 
             bindings = <
-&kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12 
-&none &none &none &none &none &none &none &none &none &none &none &none  
-&sys_reset &bootloader &none &none &none &none &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_CLR &none &none 
-                       &none &none &none &none &none &none
+&trans &kp F1 &kp F2  &kp F3  &kp F4  &kp VOUP    &kp BRUP &bt BTS0 &bt BTS1 &bt BTS2 &bt BTCR &sys_reset
+&trans &kp F5 &kp F6  &kp F7  &kp F8  &kp VODN    &kp BRDN &none    &none    &none    &none    &none
+&trans &kp F9 &kp F10 &kp F11 &kp F12 &kp MUTE    &none    &none    &none    &none    &none    &bootloader
+                      &none   &trans  &none       &none    &none    &none
             >;
         };
     };
