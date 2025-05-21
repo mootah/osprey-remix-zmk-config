@@ -2,30 +2,6 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
-#define MUTE (C_MUTE)
-#define VODN (C_VOL_DN)
-#define VOUP (C_VOL_UP)
-#define BRDN (C_BRI_DN)
-#define BRUP (C_BRI_UP)
-
-#define BTS0 (BT_SEL 0)
-#define BTS1 (BT_SEL 1)
-#define BTS2 (BT_SEL 2)
-#define BTCR (BT_CLR)
-
-/* Layer Default  */
-#define L_D 0
-/* Layer Qwerty   */
-#define L_Q 1
-/* Layer Left     */
-#define L_L 2
-/* Layer Right    */
-#define L_R 3
-/* Layer Tenkey   */
-#define L_T 4
-/* Layer Function */
-#define L_F 5
-
 &lt {
     flavor = "hold-preferred";
 };
@@ -49,9 +25,16 @@
         wzero: wzero {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&macro_tap &kp N0 &kp N0>
-                ;
+            bindings = <&macro_tap &kp N0 &kp N0>;
+        };
+    };
+    
+    behaviors {
+        lundo: l_undo {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp L>, <&kp LC(Z)>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
         };
     };
 
@@ -63,10 +46,10 @@
             display-name = "Default";
 
             bindings = <
-&kp ESC   &kp Q &kp W &kp U   &kp F         &kp MINUS     &kp SQT       &kp J          &kp H    &kp Y &kp P &to L_Q
-&kp LCTRL &kp E &kp I &kp A   &kp O         &kp COMMA     &kp K         &kp T          &kp N    &kp S &kp R &kp BSPC 
-&kp LALT  &kp L &kp X &kp C   &kp V         &kp QMARK     &kp G         &kp D          &kp M    &kp Z &kp B &kp RGUI
-                      &mo L_T &mt LSHFT TAB &lt L_L ENTER &lt L_R SPACE &mt RSHFT BSPC &mo L_F
+&kp ESC   &kp Q  &kp W &kp U &kp F         &kp MINUS   &kp SQT     &kp J          &kp H    &kp Y &kp P &to 1
+&kp LCTRL &kp E  &kp I &kp A &kp O         &kp COMMA   &kp K       &kp T          &kp N    &kp S &kp R &kp BSPC 
+&kp LALT  &lundo &kp X &kp C &kp V         &kp QMARK   &kp G       &kp D          &kp M    &kp Z &kp B &kp RGUI
+                      &mo 4 &mt LSHFT TAB &lt 2 ENTER &lt 3 SPACE &mt RSHFT BSPC &mo 5
             >;
         };
 
@@ -75,10 +58,10 @@
             display-name = "Qwerty";
 
             bindings = <
-&kp ESC   &kp Q &kp W &kp E   &kp R         &kp T         &kp Y         &kp U          &kp I     &kp O   &kp P    &to L_D
-&kp LCTRL &kp A &kp S &kp D   &kp F         &kp G         &kp H         &kp J          &kp K     &kp L   &kp SEMI &kp SQT 
-&kp LALT  &kp Z &kp X &kp C   &kp V         &kp B         &kp N         &kp M          &kp COMMA &kp DOT &kp FSLH &kp RGUI
-                      &mo L_T &mt LSHFT TAB &lt L_L ENTER &lt L_R SPACE &mt RSHFT BSPC &mo L_F
+&kp ESC   &kp Q &kp W &kp E &kp R         &kp T       &kp Y       &kp U          &kp I     &kp O   &kp P    &to 0
+&kp LCTRL &kp A &kp S &kp D &kp F         &kp G       &kp H       &kp J          &kp K     &kp L   &kp SEMI &kp SQT 
+&kp LALT  &kp Z &kp X &kp C &kp V         &kp B       &kp N       &kp M          &kp COMMA &kp DOT &kp FSLH &kp RGUI
+                      &mo 4 &mt LSHFT TAB &lt 2 ENTER &lt 3 SPACE &mt RSHFT BSPC &mo 5
             >;
         };
 
@@ -119,10 +102,10 @@
             display-name = "Function";
 
             bindings = <
-&trans &kp F1 &kp F2  &kp F3  &kp F4  &kp VOUP    &kp BRUP &bt BTS0 &bt BTS1 &bt BTS2 &bt BTCR &sys_reset
-&trans &kp F5 &kp F6  &kp F7  &kp F8  &kp VODN    &kp BRDN &none    &none    &none    &none    &none
-&trans &kp F9 &kp F10 &kp F11 &kp F12 &kp MUTE    &none    &none    &none    &none    &none    &bootloader
-                      &none   &trans  &none       &none    &none    &none
+&trans &kp F1 &kp F2  &kp F3  &kp F4  &kp C_VOL_UP &kp C_BRI_UP &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_CLR &sys_reset
+&trans &kp F5 &kp F6  &kp F7  &kp F8  &kp C_VOL_DN &kp C_BRI_DN &none        &none        &none        &none      &none
+&trans &kp F9 &kp F10 &kp F11 &kp F12 &kp C_MUTE   &none        &none        &none        &none        &none      &bootloader
+                      &none   &trans  &none        &none        &none        &none
             >;
         };
     };
