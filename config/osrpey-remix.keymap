@@ -43,13 +43,13 @@
         
         default_layer {
 
-            display-name = "Default";
+            display-name = "Onishi";
 
             bindings = <
-&kp ESC   &kp Q  &kp W &kp U &kp F         &kp MINUS   &kp SQT     &kp J          &kp H    &kp Y &kp P &to 1
-&kp LCTRL &kp E  &kp I &kp A &kp O         &kp COMMA   &kp K       &kp T          &kp N    &kp S &kp R &kp RCTRL 
-&kp LALT  &lundo &kp X &kp C &kp V         &kp QMARK   &kp G       &kp D          &kp M    &kp Z &kp B &kp RGUI
-                       &mo 4 &mt LSHFT TAB &lt 2 SPACE &lt 3 ENTER &mt RSHFT BSPC &mo 5
+&kp ESC   &kp Q  &kp W &kp U &kp F     &kp MINUS &kp SQT &kp J     &kp H &kp Y &kp P &to 1
+&kp LCTRL &kp E  &kp I &kp A &kp O     &kp COMMA &kp K   &kp T     &kp N &kp S &kp R &kp RCTRL 
+&kp LALT  &lundo &kp X &kp C &kp V     &kp QMARK &kp G   &kp D     &kp M &kp Z &kp B &kp RGUI
+                       &mo 4 &kp LSHFT &mo 2     &mo 3   &kp RSHFT &mo 5
             >;
         };
 
@@ -58,10 +58,10 @@
             display-name = "Qwerty";
 
             bindings = <
-&kp ESC   &kp Q &kp W &kp E &kp R         &kp T       &kp Y       &kp U          &kp I     &kp O   &kp P    &to 0
-&kp LCTRL &kp A &kp S &kp D &kp F         &kp G       &kp H       &kp J          &kp K     &kp L   &kp SEMI &kp SQT 
-&kp LALT  &kp Z &kp X &kp C &kp V         &kp B       &kp N       &kp M          &kp COMMA &kp DOT &kp FSLH &kp RGUI
-                      &mo 4 &mt LSHFT TAB &lt 2 SPACE &lt 3 ENTER &mt RSHFT BSPC &mo 5
+&kp ESC   &kp Q &kp W &kp E &kp R     &kp T &kp Y &kp U     &kp I     &kp O   &kp P    &to 0
+&kp LCTRL &kp A &kp S &kp D &kp F     &kp G &kp H &kp J     &kp K     &kp L   &kp SEMI &kp SQT 
+&kp LALT  &kp Z &kp X &kp C &kp V     &kp B &kp N &kp M     &kp COMMA &kp DOT &kp FSLH &kp RGUI
+                      &mo 4 &kp LSHFT &mo 2 &mo 3 &kp RSHFT &mo 5
             >;
         };
 
@@ -69,9 +69,9 @@
             display-name = "Left";
 
             bindings = <
-&trans &none     &kp LPAR  &kp RPAR  &kp EQUAL  &kp PLUS    &kp GRAVE &kp DQT   &kp LT   &kp GT    &kp BSLH  &none
-&trans &kp ESC   &kp BSPC  &kp ENTER &kp SPACE  &kp DOT     &kp LEFT  &kp DOWN  &kp UP   &kp RIGHT &none     &none
-&trans &kp LC(L) &kp LC(X) &kp LC(C) &kp LC(V)  &none       &none     &kp COLON &kp SEMI &none     &kp FSLH  &none
+&trans  &none     &kp LPAR  &kp RPAR  &kp EQUAL  &kp PLUS    &kp GRAVE &kp DQT   &kp LT   &kp GT    &kp BSLH  &none
+&kp ESC &kp TAB   &kp BSPC  &kp ENTER &kp SPACE  &kp DOT     &kp LEFT  &kp DOWN  &kp UP   &kp RIGHT &none     &none
+&trans  &kp LC(L) &kp LC(X) &kp LC(C) &kp LC(V)  &none       &none     &kp COLON &kp SEMI &none     &kp FSLH  &none
                            &none     &trans     &none       &none     &none     &none
             >;
         };
