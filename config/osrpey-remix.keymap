@@ -70,9 +70,9 @@
 
             bindings = <
 &trans  &none     &kp LPAR  &kp RPAR  &kp EQUAL  &kp PLUS    &kp GRAVE &kp DQT   &kp LT   &kp GT    &kp BSLH  &none
-&kp ESC &kp TAB   &kp BSPC  &kp ENTER &kp SPACE  &kp DOT     &kp LEFT  &kp DOWN  &kp UP   &kp RIGHT &none     &none
-&trans  &kp LC(L) &kp LC(X) &kp LC(C) &kp LC(V)  &none       &none     &kp COLON &kp SEMI &none     &kp FSLH  &none
-                           &none     &trans     &none       &none     &none     &none
+&kp ESC &kp TAB   &kp BSPC  &kp ENTER &kp SPACE  &kp DOT     &kp LEFT  &kp DOWN  &kp UP   &kp RIGHT &none     &trans
+&trans  &kp LC(L) &kp LC(X) &kp LC(C) &kp LC(V)  &none       &none     &kp COLON &kp SEMI &none     &kp FSLH  &trans
+                            &none     &trans     &none       &none     &trans     &none
             >;
         };
 
@@ -81,9 +81,9 @@
 
             bindings = <
 &trans &kp PRCNT &kp LBKT &kp RBKT &kp UNDER &kp TILDE    &kp HOME &kp PG_DN &kp PG_UP &kp END   &none &none 
-&trans &kp AT    &kp LBRC &kp RBRC &kp CARET &kp DLLR     &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &none &none
-&trans &kp HASH  &kp PIPE &kp AMPS &kp STAR  &kp EXCL     &none    &none     &none     &none     &none &none 
-                          &none    &trans    &none        &none    &none     &none
+&trans &kp AT    &kp LBRC &kp RBRC &kp CARET &kp DLLR     &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &none &trans
+&trans &kp HASH  &kp PIPE &kp AMPS &kp STAR  &kp EXCL     &none    &none     &none     &none     &none &trans
+                          &none    &trans    &none        &none    &trans    &none
             >;
         };
 
